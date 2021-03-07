@@ -1,11 +1,16 @@
-const margin = {top:70,bottom:10, left:20, right:20};
+const margin = {top:70,bottom:10, left:50, right:50};
 const fretsDisplayed = 4;
 const fretHeight = 46; 
 const stringCount = 6;
 const stringOffset = 30;
 const circleRadius = 12;
+
 const title = {
     fontWeight:500
+}
+const subtext = {
+    fontWeight:500,
+    fill:"#323232"
 }
 const line = {
     stroke:"#000000",
@@ -56,6 +61,10 @@ export default function Chord(props) {
 
     function _generateChordDisplay(chord, nutLocation = 0) {
         let data = [];
+        if(nutLocation !== 0) {
+            //add fret # next t highest finger
+            data.push(<text style={subtext} x={margin.left + stringOffset*5.2} y={margin.top + fretHeight/1.66}>fret {nutLocation + 1}</text>)
+        }
         for (let i = 0; i < stringCount; i++) {
             let position = chord.fingering[i] - nutLocation;
             if(position >= 1) {
