@@ -63,7 +63,7 @@ export default function Chord(props) {
         let data = [];
         if(nutLocation !== 0) {
             //add fret # next t highest finger
-            data.push(<text style={subtext} x={margin.left + stringOffset*5.2} y={margin.top + fretHeight/1.66}>fret {nutLocation + 1}</text>)
+            data.push(<text style={subtext} x={margin.left + stringOffset*5.2} y={margin.top + fretHeight/1.66}>{nutLocation + 1}</text>)
         }
         for (let i = 0; i < stringCount; i++) {
             let position = chord.fingering[i] - nutLocation;
